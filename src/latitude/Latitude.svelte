@@ -67,6 +67,7 @@
     height: 300px;
     width: 300px;
     cursor: pointer;
+    outline: none;
   }
   .background {
     position: absolute;

@@ -1,7 +1,5 @@
 <script>
   import { Horizontal, Vertical, Label, Latitude } from './src'
-  let value = 70
-  let latitude = 34
 </script>
 
 <style>
@@ -30,17 +28,24 @@
 
   <h2 class="mt3">Horizontal:</h2>
   <div style="width:80%;">
-    <!-- <Horizontal bind:value min={0} max={200}>
+    <Horizontal value={20} min={0} max={200}>
       <label start="10" end="20" color="red" label="beginning" />
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
-    </Horizontal> -->
+    </Horizontal>
   </div>
   <div class="mt3" />
 
   <h2 class="mt3">Vertical:</h2>
   <div style="width:80%; height:300px;">
-    <Vertical bind:value min={0} max={200}>
+    <Vertical value="70" min={0} max={200}>
+      <label start="10" end="20" color="red" label="beginning" />
+      <label start="20" end="180" color="blue" label="middle" />
+      <label start="180" end="190" color="red" label="end" />
+    </Vertical>
+  </div>
+  <div class="mt3" style="width:80%; height:300px;">
+    <Vertical value={0} min={0} max={200}>
       <label start="10" end="20" color="red" label="beginning" />
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
@@ -49,7 +54,7 @@
   <div class="mt3" />
   <h2 class="mt3">Latitude:</h2>
   <div style="width:80%; height:300px;">
-    <Latitude bind:value={latitude} />
+    <Latitude value={37} />
   </div>
   <div class="mt3" />
 </div>

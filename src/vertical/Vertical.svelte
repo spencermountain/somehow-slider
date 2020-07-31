@@ -32,6 +32,7 @@
     height: 100%;
     width: 40px;
     cursor: pointer;
+    outline: none;
   }
   .background {
     position: absolute;
@@ -42,6 +43,7 @@
     height: 100%;
     width: 100%;
     touch-action: none;
+    padding-bottom: 15px;
   }
   .handle {
     position: relative;
