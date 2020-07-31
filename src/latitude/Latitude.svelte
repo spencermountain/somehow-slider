@@ -1,7 +1,14 @@
 <script>
+  import {
+    Globe,
+    Graticule,
+    Latitude,
+    Countries
+  } from '/Users/spencer/mountain/somehow-maps/src/'
+
   import scaleLinear from '../scale'
   export let value = 0
-  export let max = 100
+  export let max = 180
   export let min = 0
   let scale = scaleLinear({ world: [0, 100], minmax: [min, max] })
   let percent = scale(value)
@@ -56,15 +63,16 @@
 <style>
   .container {
     position: relative;
-    height: 100%;
-    width: 40px;
+    height: 300px;
+    width: 300px;
     cursor: pointer;
   }
   .background {
     position: absolute;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
+    border: 1px solid lightgrey;
     border-radius: 8px;
-    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2); */
     top: 0%;
     height: 100%;
     width: 100%;
@@ -92,12 +100,20 @@
 
 <!-- <div>{value}</div>
 <div>{percent}</div> -->
+
 <div
   class="container"
   on:pointerdown={startClick}
   on:keydown={handleKeydown}
   tabindex="0">
-  <div class="background" />
+
+  <div class="background" style="">
+    <Globe tilt={-10} rotate="30" width="300" height="300">
+      <Graticule />
+      <Countries color="lightgrey" />
+      <Latitude at={40} width="8" />
+    </Globe>
+  </div>
   <div
     class="handle"
     style="top:{percent}%;"

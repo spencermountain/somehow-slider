@@ -1,6 +1,7 @@
 <script>
-  import { Horizontal, Vertical, Label } from './src'
+  import { Horizontal, Vertical, Label, Latitude } from './src'
   let value = 20
+  let latitude = 34
 </script>
 
 <style>
@@ -44,6 +45,11 @@
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
     </Vertical>
+  </div>
+  <div class="mt3" />
+  <h2 class="mt3">Latitude:</h2>
+  <div style="width:80%; height:300px;">
+    <Latitude bind:value={latitude} />
   </div>
   <div class="mt3" />
 </div>

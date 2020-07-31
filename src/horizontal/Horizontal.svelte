@@ -42,6 +42,16 @@
     window.addEventListener('pointerup', mouseUp)
     moveHandle(e)
   }
+  function handleKeydown(event) {
+    if (event.key === 'ArrowLeft') {
+      percent -= 1
+      value = scale.backward(percent)
+    }
+    if (event.key === 'ArrowRight') {
+      percent += 1
+      value = scale.backward(percent)
+    }
+  }
 </script>
 
 <style>
@@ -83,7 +93,7 @@
 
 <!-- <div>{value}</div>
 <div>{percent}</div> -->
-<div class="container" on:pointerdown={startClick}>
+<div class="container" on:pointerdown={startClick} on:keydown={handleKeydown}>
   <div class="background" />
   <div
     class="handle"
