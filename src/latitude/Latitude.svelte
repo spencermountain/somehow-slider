@@ -57,6 +57,7 @@
       percent += 1
       value = scale.backward(percent)
     }
+    event.preventDefault()
   }
 </script>
 
@@ -83,8 +84,9 @@
     border-radius: 8px;
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
     position: absolute;
-    width: 100%;
-    height: 15px;
+    width: 115%;
+    left: -7.5%;
+    height: 10px;
     cursor: row-resize;
     border: 1px solid grey;
     position: relative;
@@ -92,8 +94,11 @@
     touch-action: none;
   }
   .number {
-    position: absolute;
-    left: 50px;
+    position: relative;
+    font-size: 32px;
+    top: -8px;
+    color: #404040;
+    /* left: 150px; */
     user-select: none;
   }
 </style>
@@ -119,6 +124,6 @@
     style="top:{percent}%;"
     on:pointerdown={startClick}
     bind:this={el}>
-    <div class="number">{Math.round(value)}</div>
+    <div class="number">{Math.round(value) + '°'}</div>
   </div>
 </div>

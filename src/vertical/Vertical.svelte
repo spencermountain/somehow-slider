@@ -50,6 +50,7 @@
       percent += 1
       value = scale.backward(percent)
     }
+    event.preventDefault()
   }
 </script>
 

@@ -59368,7 +59368,7 @@ var app = (function () {
 
 	const file$5 = "src/Latitude/Latitude.svelte";
 
-	// (111:4) <Globe tilt={-10} rotate="30" width="300" height="300">
+	// (116:4) <Globe tilt={-10} rotate="30" width="300" height="300">
 	function create_default_slot(ctx) {
 		var t0, t1, current;
 
@@ -59441,7 +59441,7 @@ var app = (function () {
 	}
 
 	function create_fragment$6(ctx) {
-		var div3, div0, t0, div2, div1, t1_value = Math.round(ctx.value), t1, current, dispose;
+		var div3, div0, t0, div2, div1, t1_value = Math.round(ctx.value) + '°', t1, current, dispose;
 
 		var globe = new Globe({
 			props: {
@@ -59464,16 +59464,16 @@ var app = (function () {
 				div2 = element("div");
 				div1 = element("div");
 				t1 = text(t1_value);
-				div0.className = "background svelte-d6cdb0";
-				add_location(div0, file$5, 109, 2, 2325);
-				div1.className = "number svelte-d6cdb0";
-				add_location(div1, file$5, 121, 4, 2646);
-				div2.className = "handle svelte-d6cdb0";
+				div0.className = "background svelte-1lqhyk6";
+				add_location(div0, file$5, 114, 2, 2432);
+				div1.className = "number svelte-1lqhyk6";
+				add_location(div1, file$5, 126, 4, 2753);
+				div2.className = "handle svelte-1lqhyk6";
 				set_style(div2, "top", "" + ctx.percent + "%");
-				add_location(div2, file$5, 116, 2, 2538);
-				div3.className = "container svelte-d6cdb0";
+				add_location(div2, file$5, 121, 2, 2645);
+				div3.className = "container svelte-1lqhyk6";
 				div3.tabIndex = "0";
-				add_location(div3, file$5, 103, 0, 2222);
+				add_location(div3, file$5, 108, 0, 2329);
 
 				dispose = [
 					listen(div2, "pointerdown", ctx.startClick),
@@ -59503,7 +59503,7 @@ var app = (function () {
 				if (changed.$$scope) globe_changes.$$scope = { changed, ctx };
 				globe.$set(globe_changes);
 
-				if ((!current || changed.value) && t1_value !== (t1_value = Math.round(ctx.value))) {
+				if ((!current || changed.value) && t1_value !== (t1_value = Math.round(ctx.value) + '°')) {
 					set_data(t1, t1_value);
 				}
 
@@ -59592,6 +59592,7 @@ var app = (function () {
 	      $$invalidate('percent', percent += 1);
 	      $$invalidate('value', value = scale.backward(percent));
 	    }
+	    event.preventDefault();
 	  }
 
 		function div2_binding($$node, check) {
