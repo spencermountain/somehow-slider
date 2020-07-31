@@ -1,6 +1,6 @@
 <script>
   import { Horizontal, Vertical, Label, Latitude } from './src'
-  let value = 20
+  let value = 70
   let latitude = 34
 </script>
 

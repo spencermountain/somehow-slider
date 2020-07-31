@@ -1,45 +1,17 @@
 <script>
   import scaleLinear from '../scale'
+  import onFirstClick from '../dragHandler'
   export let value = 0
   export let max = 100
   export let min = 0
   let scale = scaleLinear({ world: [0, 100], minmax: [min, max] })
   let percent = scale(value)
-  let dragStart = 0
-  let el = null
 
-  const moveHandle = function(e) {
-    if (el.isSameNode(e.target) === true) {
-      return
-    }
-    let total = e.target.clientHeight
-    let val = e.layerY || 0
-
-    percent = (val / total) * 100
-    if (percent > 100) {
-      percent = 100
-    }
-    if (percent < 0) {
-      percent = 0
-    }
-    value = scale.backward(percent)
-  }
-  // end drag event
-  const mouseUp = function(e) {
-    stopDrag(e)
-  }
-  const didDrag = function(e) {
-    moveHandle(e)
-  }
-  const stopDrag = function(e) {
-    window.removeEventListener('pointermove', didDrag)
-    window.removeEventListener('pointerup', mouseUp)
-  }
   function startClick(e) {
-    dragStart = e.layerY
-    window.addEventListener('pointermove', didDrag)
-    window.addEventListener('pointerup', mouseUp)
-    moveHandle(e)
+    onFirstClick(e, res => {
+      percent = res.percent.y * 100
+      value = scale.backward(percent)
+    })
   }
   function handleKeydown(event) {
     if (event.key === 'ArrowUp') {
@@ -99,11 +71,7 @@
   on:keydown={handleKeydown}
   tabindex="0">
   <div class="background" />
-  <div
-    class="handle"
-    style="top:{percent}%;"
-    on:pointerdown={startClick}
-    bind:this={el}>
+  <div class="handle" style="top:{percent}%;" on:pointerdown={startClick}>
     <div class="number">{Math.round(value)}</div>
   </div>
 </div>
