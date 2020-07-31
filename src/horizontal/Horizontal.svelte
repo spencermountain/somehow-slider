@@ -76,7 +76,8 @@
   }
   .number {
     position: absolute;
-    top: 100px;
+    top: 50px;
+    user-select: none;
   }
 </style>
 

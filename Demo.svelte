@@ -1,5 +1,5 @@
 <script>
-  import { Horizontal, Label } from './src'
+  import { Horizontal, Vertical, Label } from './src'
   let value = 20
 </script>
 
@@ -29,21 +29,21 @@
 
   <h2 class="mt3">Horizontal:</h2>
   <div style="width:80%;">
-    <Horizontal bind:value min={0} max={200}>
+    <!-- <Horizontal bind:value min={0} max={200}>
       <label start="10" end="20" color="red" label="beginning" />
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
-    </Horizontal>
+    </Horizontal> -->
   </div>
   <div class="mt3" />
 
   <h2 class="mt3">Vertical:</h2>
-  <div style="width:80%;">
-    <Horizontal bind:value min={0} max={200}>
+  <div style="width:80%; height:300px;">
+    <Vertical bind:value min={0} max={200}>
       <label start="10" end="20" color="red" label="beginning" />
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
-    </Horizontal>
+    </Vertical>
   </div>
   <div class="mt3" />
 </div>
