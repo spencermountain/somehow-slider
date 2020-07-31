@@ -6,7 +6,6 @@ const getBox = function (e) {
     }
     el = el.parentNode || el
   }
-  console.log(el)
   return el.getBoundingClientRect()
 }
 
@@ -17,8 +16,8 @@ const goHere = function (e, cb) {
     start: {},
     diff: {},
     value: {
-      x: e.screenX - outside.left,
-      y: e.screenY - outside.top,
+      x: e.pageX - outside.left, //seems to work?
+      y: e.clientY - outside.top,
     },
   }
   res.percent = {
@@ -31,20 +30,20 @@ const goHere = function (e, cb) {
 const onFirstClick = function (e, cb) {
   let outside = getBox(e)
   let start = {
-    x: e.screenX - outside.left,
-    y: e.screenY - outside.top,
+    x: e.pageX - outside.left,
+    y: e.clientY - outside.top,
   }
   const onDrag = function (event) {
     let res = {
       start: start,
       diff: {
-        x: event.screenX - start.x - outside.left,
-        y: event.screenY - start.y - outside.top,
+        x: event.pageX - start.x - outside.left,
+        y: event.clientY - start.y - outside.top,
       },
     }
     res.value = {
-      x: event.screenX - outside.left,
-      y: event.screenY - outside.top,
+      x: event.pageX - outside.left,
+      y: event.clientY - outside.top,
     }
     // ensure values are within bounds
     if (res.value.x > outside.width) {

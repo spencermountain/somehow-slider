@@ -16,23 +16,27 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
+  .link {
+    text-decoration: underline;
+    color: steelblue;
+  }
 </style>
 
 <div class="col">
-  <div>
-    <a href="https://github.com/spencermountain/somehow-slider">
+  <h2>
+    <a class="link" href="https://github.com/spencermountain/somehow-slider">
       somehow-slider
     </a>
-  </div>
-  <div>some handy svelte slider (aka range) components</div>
+  </h2>
+  <div>some handy slider (aka range) components in svelte</div>
 
   <h2 class="mt3">Horizontal:</h2>
   <div style="width:80%;">
-    <!-- <Horizontal value={20} min={0} max={200}>
+    <Horizontal value={20} min={0} max={200}>
       <label start="10" end="20" color="red" label="beginning" />
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
-    </Horizontal> -->
+    </Horizontal>
   </div>
   <div class="mt3" />
 

@@ -9,7 +9,8 @@
 
   function startClick(e) {
     onFirstClick(e, res => {
-      percent = res.percent.y * 100
+      console.log(res.percent)
+      percent = res.percent.x * 100
       value = scale.backward(percent)
     })
   }
@@ -43,6 +44,7 @@
     height: 33%;
     width: 100%;
     touch-action: none;
+    padding-right: 15px;
   }
   .handle {
     position: relative;

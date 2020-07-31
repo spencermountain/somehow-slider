@@ -9,7 +9,6 @@
 
   function startClick(e) {
     onFirstClick(e, res => {
-      // console.log(res.value.y, res.percent.y)
       percent = res.percent.y * 100
       value = scale.backward(percent)
     })
@@ -54,7 +53,6 @@
     width: 100%;
     height: 15px;
     cursor: pointer;
-    /* cursor: row-resize; */
     border: 1px solid grey;
     position: relative;
     background-color: steelblue;

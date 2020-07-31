@@ -1,7 +1,7 @@
 {
   "name": "somehow-slider",
   "description": "some handy svelte slider components",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./src",
   "author": "Spencer Kelly (spencermountain)",
   "homepage": "https://github.com/spencermountain/somehow-input/",
