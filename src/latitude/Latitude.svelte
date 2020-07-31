@@ -5,48 +5,20 @@
     Latitude,
     Countries
   } from '/Users/spencer/mountain/somehow-maps/src/'
-
+  import onFirstClick from '../dragHandler'
   import scaleLinear from '../scale'
   export let value = 0
+  value -= 90
+  value *= -1 //sorry
   export let max = 180
   export let min = 0
   let scale = scaleLinear({ world: [0, 100], minmax: [min, max] })
   let percent = scale(value)
-  let dragStart = 0
-  let el = null
-
-  const moveHandle = function(e) {
-    if (el.isSameNode(e.target) === true) {
-      return
-    }
-    let total = e.target.clientHeight
-    let val = e.layerY || 0
-
-    percent = (val / total) * 100
-    if (percent > 100) {
-      percent = 100
-    }
-    if (percent < 0) {
-      percent = 0
-    }
-    value = scale.backward(percent)
-  }
-  // end drag event
-  const mouseUp = function(e) {
-    stopDrag(e)
-  }
-  const didDrag = function(e) {
-    moveHandle(e)
-  }
-  const stopDrag = function(e) {
-    window.removeEventListener('pointermove', didDrag)
-    window.removeEventListener('pointerup', mouseUp)
-  }
   function startClick(e) {
-    dragStart = e.layerY
-    window.addEventListener('pointermove', didDrag)
-    window.addEventListener('pointerup', mouseUp)
-    moveHandle(e)
+    onFirstClick(e, res => {
+      percent = res.percent.y * 100
+      value = scale.backward(percent)
+    })
   }
   function handleKeydown(event) {
     if (event.key === 'ArrowUp') {
@@ -58,6 +30,12 @@
       value = scale.backward(percent)
     }
     event.preventDefault()
+  }
+  const fmt = function(val) {
+    val = Math.round(val)
+    val = val - 90
+    val = -1 * val
+    return val + '°'
   }
 </script>
 
@@ -83,22 +61,31 @@
   .handle {
     position: relative;
     border-radius: 8px;
-    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.2); */
     position: absolute;
     width: 115%;
     left: -7.5%;
     height: 10px;
     cursor: row-resize;
-    border: 1px solid grey;
     position: relative;
-    background-color: steelblue;
+    background-color: #5ea1ca;
     touch-action: none;
   }
   .number {
     position: relative;
-    font-size: 32px;
-    top: -8px;
-    color: #404040;
+    font-size: 25px;
+    top: -10px;
+    background-color: #fbfbfb;
+    opacity: 0.8;
+    border-radius: 10px;
+    display: inline;
+    border: 4px solid #5ea1ca;
+    /* border-bottom: 4px solid #cc7066; */
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    color: steelblue;
+    /* color: #d68881; */
     /* left: 150px; */
     user-select: none;
   }
@@ -117,14 +104,10 @@
     <Globe tilt={-10} rotate="30" width="300" height="300">
       <Graticule />
       <Countries color="lightgrey" />
-      <Latitude at={40} width="8" />
+      <Latitude at={0} width="0.8" color="grey" />
     </Globe>
   </div>
-  <div
-    class="handle"
-    style="top:{percent}%;"
-    on:pointerdown={startClick}
-    bind:this={el}>
-    <div class="number">{Math.round(value) + '°'}</div>
+  <div class="handle" style="top:{percent}%;" on:pointerdown={startClick}>
+    <div class="number">{fmt(value)}</div>
   </div>
 </div>

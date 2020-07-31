@@ -28,11 +28,11 @@
 
   <h2 class="mt3">Horizontal:</h2>
   <div style="width:80%;">
-    <Horizontal value={20} min={0} max={200}>
+    <!-- <Horizontal value={20} min={0} max={200}>
       <label start="10" end="20" color="red" label="beginning" />
       <label start="20" end="180" color="blue" label="middle" />
       <label start="180" end="190" color="red" label="end" />
-    </Horizontal>
+    </Horizontal> -->
   </div>
   <div class="mt3" />
 
