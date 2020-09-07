@@ -27,21 +27,35 @@
 
 ```html
 <script>
-  import { Horizontal, Slider, Label } from './src'
+  import { Vertical, Slider, Label } from './src'
 </script>
-<Horizontal bind:value min="{0}" max="{200}">
+<Vertical bind:value min="{0}" max="{200}">
   <label start="10" end="20" color="red" label="beginning" />
   <label start="20" end="180" color="blue" label="middle" />
   <label start="180" end="190" color="red" label="end" />
-</Horizontal>
+</Vertical>
 ```
 
 ![image](https://user-images.githubusercontent.com/399657/92410478-3048bc80-f112-11ea-9a90-2a8ae7613fe9.png)
+
+### Latitude
+
+a component for selecting a latitude on our earth
+
+```html
+<script>
+  import { Latitude } from './src'
+</script>
+<Latitude value="{37}" />
+```
+
+![image](https://user-images.githubusercontent.com/399657/92410573-903f6300-f112-11ea-891e-f237ad1b14f6.png)
 
 ## API
 
 - Vertical
 - Horizontal
 - Label
+- Latitude
 
 MIT
