@@ -1,14 +1,21 @@
 <div align="center">
-  <img src="https://cloud.githubusercontent.com/assets/399657/23590290/ede73772-01aa-11e7-8915-181ef21027bc.png" />
-  <div>svelte slider elements</div>
-
-  <a href="https://npmjs.org/package/somehow-input">
-    <img src="https://img.shields.io/npm/v/somehow-input.svg?style=flat-square" />
-  </a>
-  <a href="https://unpkg.com/somehow-input">
-    <img src="https://badge-size.herokuapp.com/spencermountain/somehow-input/master/builds/somehow.min.js" />
+  <div><b>somehow-slider</b></div>
+  <img src="https://user-images.githubusercontent.com/399657/68222691-6597f180-ffb9-11e9-8a32-a7f38aa8bded.png"/>
+  <div>— part of <a href="https://github.com/spencermountain/somehow">somehow</a> —</div>
+  <div>WIP svelte infographics</div>
+  <div align="center">
+    <sub>
+      by
+      <a href="https://spencermounta.in/">Spencer Kelly</a> 
+    </sub>
+  </div>
+</div>
+<div align="right">
+  <a href="https://npmjs.org/package/somehow-slider">
+    <img src="https://img.shields.io/npm/v/somehow-slider.svg?style=flat-square" />
   </a>
 </div>
+<img height="25px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
 
 <div align="center">
   <code>npm install somehow-slider</code>
@@ -20,7 +27,7 @@
 
 ```html
 <script>
-  import { Horizontal, Slider } from './src'
+  import { Horizontal, Slider, Label } from './src'
 </script>
 <Horizontal bind:value min="{0}" max="{200}">
   <label start="10" end="20" color="red" label="beginning" />
@@ -29,9 +36,12 @@
 </Horizontal>
 ```
 
+![image](https://user-images.githubusercontent.com/399657/92410478-3048bc80-f112-11ea-9a90-2a8ae7613fe9.png)
+
 ## API
 
 - Vertical
 - Horizontal
+- Label
 
 MIT

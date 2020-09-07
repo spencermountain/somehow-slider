@@ -1,10 +1,8 @@
 import svelte from 'rollup-plugin-svelte'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
-
-// console.log(process.argv)
+import json from '@rollup/plugin-json'
 
 function serve() {
   let started = false
@@ -30,6 +28,7 @@ export default {
     file: 'build/bundle.js',
   },
   plugins: [
+    json({}),
     svelte({
       dev: true,
       css: (css) => {
@@ -40,7 +39,6 @@ export default {
       browser: true,
       dedupe: ['svelte'],
     }),
-    json(),
     commonjs(),
     serve(),
     livereload('.'),
