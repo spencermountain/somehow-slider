@@ -9,7 +9,6 @@
 
   function startClick(e) {
     onFirstClick(e, res => {
-      console.log(res.percent)
       percent = res.percent.x * 100
       value = scale.backward(percent)
     })

@@ -12,14 +12,14 @@ const scaleLinear = function (obj) {
     if (res < minmax.min) {
       return minmax.min
     }
-    return res
+    return Math.round(res)
   }
   // invert the calculation. return a %?
   calc.backward = (num) => {
     let size = world[1] - world[0]
     let range = minmax[1] - minmax[0]
     let percent = (num - world[0]) / size
-    return percent * range
+    return Math.round(percent * range)
   }
   return calc
 }
